@@ -1,7 +1,7 @@
 package org.example.exlist;
 
-public interface ListStretegy<T> {
+public interface ListStrategy<T> {
     MyNode<T> add(MyNode<T> head, MyNode<T> newMyNode);
-    MyNode<T> remove(MyNode<T> head);
+    void remove(MyNode<T> head);
 
 }

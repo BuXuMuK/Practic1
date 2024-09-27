@@ -1,12 +1,12 @@
 package org.example;
 
 import org.example.exlist.MyList;
-import org.example.exlist.SteckStretegy;
+import org.example.exlist.StackStrategy;
 
 public class Main {
 
     public static void main(String[] args) {
-        MyList<Integer> list = new MyList<>(new SteckStretegy<>());
+        MyList<Integer> list = new MyList<>(new StackStrategy<>());
 
 
         list.add(10);

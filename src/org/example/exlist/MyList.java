@@ -4,19 +4,16 @@ public class MyList<T> {
     private MyNode<T> head;
     private int size;
 
-    private ListStretegy<T> stretegy;
+    private final ListStrategy<T> strategy;
 
-    public MyList() {
-        stretegy = new SteckStretegy<>();
-    }
-    public MyList(ListStretegy<T> stretegy) {
-        this.stretegy = stretegy;
+    public MyList(ListStrategy<T> strategy) {
+        this.strategy = strategy;
     }
 
     public void add(T element){
         MyNode<T> newNode = new MyNode<>(element);
         if (head != null) {
-            head = stretegy.add(head, newNode);
+            head = strategy.add(head, newNode);
         } else {
             head = newNode;
         }
@@ -26,10 +23,9 @@ public class MyList<T> {
     public void remove(){
 
         if (head != null) {
-            head = stretegy.remove(head);
-            size--;
+            strategy.remove(head);
         }
-
+        size--;
 
     }
     public int size() {
@@ -44,11 +40,11 @@ public class MyList<T> {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("[ ");
-        MyNode<T> iter = head;
-        while (iter != null) {
-            sb.append(iter.getValue());
+        MyNode<T> inter = head;
+        while (inter != null) {
+            sb.append(inter.getValue());
             sb.append(" ");
-            iter = iter.next;
+            inter = inter.next;
         }
         sb.append("]");
         return sb.toString();

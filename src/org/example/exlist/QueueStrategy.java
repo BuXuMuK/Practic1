@@ -1,7 +1,7 @@
 package org.example.exlist;
 
-public class SteckStretegy<T> implements ListStretegy<T> {
-    @Override
+public class QueueStrategy<T>implements ListStrategy<T> {
+
     public MyNode<T> add(MyNode<T> head, MyNode<T> newNode) {
         if (head == null) {
             head = newNode;
@@ -15,20 +15,16 @@ public class SteckStretegy<T> implements ListStretegy<T> {
         return head;
     }
 
-    public MyNode<T> remove(MyNode<T> head) {
+    public void remove(MyNode<T> head) {
 
 
         MyNode<T> current = head;
-        while (current != null)
-        {
+        while(current != null){
 
             current = current.next;
             head = current;
-            return head;
+            return;
         }
 
-        return head;
     }
-
 }
-
