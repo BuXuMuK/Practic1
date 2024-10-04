@@ -1,30 +1,31 @@
 package org.example.exlist;
 
-public class QueueStrategy<T>implements ListStrategy<T> {
+public class QueueStrategy<T> implements ListStrategy<T> {
 
-    public MyNode<T> add(MyNode<T> head, MyNode<T> newNode) {
+    @Override
+    public MyNode<T> add(MyNode<T> head, MyNode<T> newMyNode) {
         if (head == null) {
-            head = newNode;
-        } else {
-            MyNode<T> current = head;
-            while (current.next != null) {
-                current = current.next;
-            }
-            current.next = newNode;
+            return newMyNode;
         }
+
+        MyNode<T> tail = head;
+        while (tail.getNext() != null) {
+            tail = tail.getNext();
+        }
+        tail.setNext(newMyNode);
+
         return head;
     }
 
-    public void remove(MyNode<T> head) {
-
-
+    @Override
+    public MyNode<T> remove(MyNode<T> head) {
         MyNode<T> current = head;
         while(current != null){
 
-            current = current.next;
+            current = current.getNext();
             head = current;
-            return;
         }
-
+        return null;
     }
 }
+

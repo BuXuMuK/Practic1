@@ -44,7 +44,7 @@ public class MyList<T> {
         while (inter != null) {
             sb.append(inter.getValue());
             sb.append(" ");
-            inter = inter.next;
+            inter = inter.getNext();
         }
         sb.append("]");
         return sb.toString();
